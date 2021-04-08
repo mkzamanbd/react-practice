@@ -1,29 +1,29 @@
 import React from 'react'
-import classes from './Builder.module'
+import Items from './Items/Items'
+import styles from './Builder.module.css'
+import Total from './Total/Total'
 
-const Builder = () => {
+const Builder = ({items, add, remove, price, scoops}) => {
     return (
-        <div className={classes.builder}>
+        <div className={styles.builder}>
             <h3>Build your own Ice Cream Sundae</h3>
             <div className="react" id="items">
-                <ul>
-                    <li className="item">
-                        <span>Orange</span>
-                        <div className="right">
-                            <button type="button" className="plus rounded">+</button>
-                            <button type="button" className="minus rounded">-</button>
-                        </div>
-                    </li>
-                </ul>
+                <Items
+                    items={items}
+                    add={add}
+                    remove={remove}
+                    scoops={scoops}
+                />
             </div>
-
-            <div className="total react" id="total">
-                <div>Total Price</div>
-                <div>3000.00 Tk</div>
-            </div>
-            <button type="button" onclick="next()" className="order rounded">Add to Cart</button>
+            <Total
+                price={price}
+            />
+            <button type="button" onClick={next} className={[styles.order, 'rounded'].join(' ')}>Add to Cart</button>
         </div>
     )
+}
+const next = () =>{
+    console.log('Next');
 }
 
 export default Builder

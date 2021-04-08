@@ -1,14 +1,16 @@
 import React from 'react';
-import classes from './IceCream.module'
+import styles from './IceCream.module.css'
 import Scoop from './Scoop/Scoop'
 
-const IceCream = () => {
+const IceCream = ({scoops}) => {
   return (
     <div>
-        <div className={classes.icecream}>
-            <p className={classes.cone}></p>
-            <Scoop/>
-            <div className={classes.cherry}></div>
+        <div className={styles.icecream}>
+            <p className={styles.cone}></p>
+            {scoops.map((scoop) => (
+				<Scoop key={`${scoop}${Math.random()}`} scoop={scoop}/>
+			))}
+            <div className={styles.cherry}></div>
         </div>
     </div>
   );
