@@ -4,15 +4,13 @@ import Scoop from './Scoop/Scoop'
 
 const IceCream = ({scoops}) => {
   return (
-    <div>
-        <div className={styles.icecream}>
-            <p className={styles.cone}></p>
-            {scoops.map((scoop) => (
-				<Scoop key={`${scoop}${Math.random()}`} scoop={scoop}/>
-			))}
-            <div className={styles.cherry}></div>
-        </div>
-    </div>
+    <div className={styles.icecream}>
+		<p className={styles.cone}></p>
+		{ scoops.map((scoop) => (
+			<Scoop key={`${scoop}${Math.random()}`} scoop={scoop}/>
+		)) }
+		<div className={styles.cherry}></div>
+	</div>
   );
 }
 

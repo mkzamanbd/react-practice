@@ -3,7 +3,7 @@ import Items from './Items/Items'
 import styles from './Builder.module.css'
 import Total from './Total/Total'
 
-const Builder = ({items, add, remove, price, scoops}) => {
+const Builder = ({items, add, remove, price, scoops, next}) => {
     return (
         <div className={styles.builder}>
             <h3>Build your own Ice Cream Sundae</h3>
@@ -18,12 +18,9 @@ const Builder = ({items, add, remove, price, scoops}) => {
             <Total
                 price={price}
             />
-            <button type="button" onClick={next} className={[styles.order, 'rounded'].join(' ')}>Add to Cart</button>
+            <button type="button" onClick={next.bind(this)} className={[styles.order, 'rounded'].join(' ')}>Add to Cart</button>
         </div>
     )
-}
-const next = () =>{
-    console.log('Next');
 }
 
 export default Builder

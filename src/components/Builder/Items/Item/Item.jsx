@@ -7,7 +7,7 @@ function Item({name, add, remove, scoops = {}}) {
     return (
         <li className={styles.item}>
             <span>{name}</span>
-            <span className={styles.quantity} style={{ margin: '0 5px' }}>{scoopsByCount[name]}</span>
+            {scoopsByCount[name] > 0 ? (<span className={styles.quantity} style={{ margin: '0 5px' }}>{scoopsByCount[name]}</span>) : null }
             <div className="right">
                 <button type="button" onClick={add.bind(this, name)} className={[styles.plus, 'rounded'].join(' ')}>+</button>
                 <button type="button" onClick={remove.bind(this, name)} className={[styles.minus, 'rounded'].join(' ')}>-</button>

@@ -42,6 +42,9 @@ export default class IceCreamBuilder extends Component {
             };
         });
     };
+	next = () =>{
+		console.log('Modal button');
+	}
 
 	render() {
 		const { scoops, items, totalPrice } = this.state;
@@ -57,6 +60,7 @@ export default class IceCreamBuilder extends Component {
 					items={items}
 					add={this.addScoop}
 					remove={this.removeScoop}
+					next={this.next}
 				/>
 			</div>
 		)
